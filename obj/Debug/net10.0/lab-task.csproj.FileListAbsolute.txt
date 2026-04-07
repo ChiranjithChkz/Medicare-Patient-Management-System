@@ -1,0 +1,28 @@
+D:\C# code\lab-task\bin\Debug\net10.0\lab-task.exe
+D:\C# code\lab-task\bin\Debug\net10.0\lab-task.deps.json
+D:\C# code\lab-task\bin\Debug\net10.0\lab-task.runtimeconfig.json
+D:\C# code\lab-task\bin\Debug\net10.0\lab-task.dll
+D:\C# code\lab-task\bin\Debug\net10.0\lab-task.pdb
+D:\C# code\lab-task\obj\Debug\net10.0\lab-task.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# code\lab-task\obj\Debug\net10.0\lab-task.AssemblyInfoInputs.cache
+D:\C# code\lab-task\obj\Debug\net10.0\lab-task.AssemblyInfo.cs
+D:\C# code\lab-task\obj\Debug\net10.0\lab-task.csproj.CoreCompileInputs.cache
+D:\C# code\lab-task\obj\Debug\net10.0\lab-task.dll
+D:\C# code\lab-task\obj\Debug\net10.0\refint\lab-task.dll
+D:\C# code\lab-task\obj\Debug\net10.0\lab-task.pdb
+D:\C# code\lab-task\obj\Debug\net10.0\lab-task.genruntimeconfig.cache
+D:\C# code\lab-task\obj\Debug\net10.0\ref\lab-task.dll
+D:\C# code\Medicare Patient Management\bin\Debug\net10.0\lab-task.exe
+D:\C# code\Medicare Patient Management\bin\Debug\net10.0\lab-task.deps.json
+D:\C# code\Medicare Patient Management\bin\Debug\net10.0\lab-task.runtimeconfig.json
+D:\C# code\Medicare Patient Management\bin\Debug\net10.0\lab-task.dll
+D:\C# code\Medicare Patient Management\bin\Debug\net10.0\lab-task.pdb
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.AssemblyInfoInputs.cache
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.AssemblyInfo.cs
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.csproj.CoreCompileInputs.cache
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.dll
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\refint\lab-task.dll
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.pdb
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.genruntimeconfig.cache
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\ref\lab-task.dll

@@ -1,6 +1,11 @@
-class EmergencyPatient : Patient
+class EmergencyPatient : Patient , ITransferable
 {
      string EmergencyType;
+
+     public void TransferTo(string department)
+    {
+        Console.WriteLine($"[Transfer] URGENT: Moving {patientName} from ER to {department}");
+    }
 
     public EmergencyPatient(string name , int id, string type) : base(name, id)
     {

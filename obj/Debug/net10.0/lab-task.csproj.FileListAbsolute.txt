@@ -26,3 +26,4 @@ D:\C# code\Medicare Patient Management\obj\Debug\net10.0\refint\lab-task.dll
 D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.pdb
 D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.genruntimeconfig.cache
 D:\C# code\Medicare Patient Management\obj\Debug\net10.0\ref\lab-task.dll
+D:\C# code\Medicare Patient Management\obj\Debug\net10.0\lab-task.sourcelink.json

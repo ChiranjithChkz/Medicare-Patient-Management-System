@@ -6,10 +6,10 @@ class Program
     {
         Patient[] patients = new Patient[]
         {
-            new GeneralPatient("Chiji", 101, "Fever, cough", "INs-23"),
-            new EmergencyPatient("Karim", 102, "Cardiac Arrest"),
-            new SurgeryPatient("Fatema", 103, "Appendectomy", "Dr. Khan", "INS-123"),
-            new PediatricPatient("Ali", 104, "Mr. Korim", "INS-456")
+            new GeneralPatient("Chiranjith Chakma", 101, "Fever, cough", "INs-2312"),
+            new EmergencyPatient("Karim Rahman", 102, "Cardiac Arrest"),
+            new SurgeryPatient("Fatema Begum", 103, "Appendectomy", "Dr. Khan", "INS-123"),
+            new PediatricPatient("Ali Uddin", 104, "Mr. Korim", "INS-456")
         };
 
         Console.WriteLine("===============Patient Reports===============");

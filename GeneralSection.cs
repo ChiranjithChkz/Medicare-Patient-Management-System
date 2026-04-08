@@ -1,13 +1,13 @@
-public class GeneralPatient : Patient , IInsurable
+public class GeneralPatient : Patient, IInsurable
 {
 
     private string Insurable;
-     string Symptoms;
+    string Symptoms;
 
-     public void ProcessInsuranceClaim()
+    public void ProcessInsuranceClaim()
     {
         Console.WriteLine($"[Insurance] Processing claim for {patientName}");
-        Console.WriteLine($"     Insurance ID: {PatientId}     |  Claim Amount: BDT {BillAmount}");
+        Console.WriteLine($"Insurance ID: {PatientId}     |        Claim Amount: BDT {BillAmount}");
     }
 
     string IInsurable.GetInsuranceDetails()
@@ -16,8 +16,8 @@ public class GeneralPatient : Patient , IInsurable
     }
 
 
- 
-     public GeneralPatient(string name, int id, string sym, string insurable) : base(name, id)
+
+    public GeneralPatient(string name, int id, string sym, string insurable) : base(name, id)
     {
         Symptoms = sym;
         Insurable = insurable;
@@ -25,24 +25,25 @@ public class GeneralPatient : Patient , IInsurable
 
     public override void Diagnose()
     {
-       
-       Console.WriteLine("--------General Patient-----------");
+
+        Console.WriteLine("------------------General Patient------------------");
+        Console.WriteLine();
         Console.WriteLine($"[Diagnose] Patient #{PatientId} {patientName} : General Checkup | Symptoms: {Symptoms} ");
 
     }
     // public void Diagnose()
     // {
-       
+
     //    Console.WriteLine("--------General Patient-----------");
     //     Console.WriteLine($"[Diagnose] Patient #{PatientId} {patientName} : General Checkup | Symptoms: {Symptoms} ");
 
     // }
 
-   
+
 
     public override void Treat()
     {
-        
+
         Console.WriteLine($"[Treat] Prescribing medication and rest for {patientName}");
         BillAmount = 800;
     }

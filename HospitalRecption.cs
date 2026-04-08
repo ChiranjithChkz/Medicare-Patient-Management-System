@@ -4,7 +4,7 @@ class HospitalReception
 {
     public void AdmitPatient(string patientName)
     {
-        Console.WriteLine($"[admited] {patientName} -> Dept: General OPD | Insurence: Self-pay");
+        Console.WriteLine($"[Admitted] {patientName} -> Dept: General OPD | Insurence: Self-pay");
     }
     public void AdmitPatient(string patientName, string department)
     {

@@ -4,6 +4,15 @@ class Program
 {
     public static void Main(string[] args)
     {
+        
+        HospitalReception h = new HospitalReception();
+        Console.WriteLine("===================Hospital Reception==================");
+        Console.WriteLine();
+        h.AdmitPatient("Chiranjith Chakma");
+        h.AdmitPatient("Chiranjith Chakma", "Emergency");
+        h.AdmitPatient("Chiranjith Chakma", "Surgery", "INS-1234#");
+        Console.WriteLine();
+
         Patient[] patients = new Patient[]
         {
             new GeneralPatient("Chiranjith Chakma", 101, "Fever, cough", "INs-2312"),
@@ -13,13 +22,15 @@ class Program
         };
 
         Console.WriteLine("===============Patient Reports===============");
+        Console.WriteLine();
         foreach(Patient p in patients)
         {
             p.GeneralReport();
             Console.WriteLine();
         }
 
-        Console.WriteLine("==================Insurance Processing===============");
+        Console.WriteLine("===============Insurance Processing=============");
+        Console.WriteLine();
         foreach(Patient p in patients)
         {
             if(p is IInsurable insuredPatient)
@@ -31,6 +42,7 @@ class Program
         }
 
         Console.WriteLine("==================Patient Transfers===============");
+        Console.WriteLine();
         foreach(Patient p in patients)
         {
             if(p is ITransferable transferable)

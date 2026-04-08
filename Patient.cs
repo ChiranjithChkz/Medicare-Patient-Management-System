@@ -29,6 +29,6 @@ using System.Globalization;
     {
         Diagnose();
         Treat();
-        Console.WriteLine($"[Bill] Patient: {patientName} | Total BDT  {BillAmount}");
+        Console.WriteLine($"[Bill] Patient: {patientName} | Total BDT  {BillAmount} TK");
     }
 }

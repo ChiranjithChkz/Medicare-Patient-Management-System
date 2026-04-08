@@ -30,5 +30,6 @@ public class PediatricPatient : Patient, IInsurable
     public override void Treat()
     {
         Console.WriteLine("[Treatment] Pediatric care applied");
+        BillAmount = 1000;
     }
 }

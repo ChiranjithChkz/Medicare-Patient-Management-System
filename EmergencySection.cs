@@ -15,7 +15,8 @@ class EmergencyPatient : Patient , ITransferable
     public override void Diagnose()
     {
         //base.Diagnose();
-        Console.WriteLine("---------Emergency Patient---------");
+        Console.WriteLine("-----------------Emergency Patient---------------");
+        Console.WriteLine();
         Console.WriteLine($"[Diagnose] Patient #{PatientId} {patientName}: URGENT TRIAGE | Emergency : {EmergencyType}");
     }  
 

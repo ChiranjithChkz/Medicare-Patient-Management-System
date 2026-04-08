@@ -32,7 +32,8 @@ public class SurgeryPatient : Patient, IInsurable, ITransferable
    
     public override void Diagnose()
     {
-        Console.WriteLine("------Surgery Patient--------");
+        Console.WriteLine("-----------------Surgery Patient-----------------");
+        Console.WriteLine();
         Console.WriteLine($"[Diagnose] Patient #{PatientId} {patientName}: Pre-surgical assessment for {Surgery}");
     }
 

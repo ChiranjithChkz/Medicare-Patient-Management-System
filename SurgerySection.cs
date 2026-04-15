@@ -1,32 +1,70 @@
-public class SurgeryPatient : Patient, IInsurable, ITransferable
+public class SurgeryPatient : Patient, IInsurable, ITransferable, IBillable
 {
-    public string Surgery;
-    public string Surgeon;
-    public string Insurance;
-
-    public SurgeryPatient(string patientName, int id, string surgery, string surgeon, string insurance) 
-        : base(patientName, id)
+    private string _surgery;
+    public string Surgery
     {
-        Surgeon = surgeon;
-        Surgery = surgery;
-        Insurance = insurance;
+        get {return _surgery;}
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Srugery cannot null or empty");
+                _surgery = value;
+            }
+        }
+    }
+    private string _surgeon;
+    public string Surgeon
+    {
+        get {return _surgeon;}
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Surgeon name cannot null or whitespace");
+                _surgeon = value;
+            }
+        }
+    }
+    private string _insurance;
+        public string Insurance
+    {
+        get {return _insurance;}
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Insurance name cannot null or whitespace");
+                _insurance = value;
+            }
+        }
     }
 
-    // IInsurable implementation
-    public void ProcessInsuranceClaim()
+    public SurgeryPatient(string PatientName, int id, string surgery, string surgeon, string insurance) 
+        : base(PatientName, id)
     {
-        Console.WriteLine($"Processing insurance claim for {patientName}");
+        _surgeon = surgeon;
+        _surgery = surgery;
+        _insurance = insurance;
     }
+
+ 
 
     public string GetInsuranceDetails()
     {
-        return $"Patient: {patientName}, Surgery: {Surgery}, Insurance: {Insurance}";
+        return $"Patient: {PatientName}, Surgery: {Surgery}, Insurance: {Insurance}";
     }
 
  
     void ITransferable.TransferTo(string department)
     {
-        Console.WriteLine($"Transferred patient {patientName} to another department/hospital.");
+        Console.WriteLine($"Transferred patient {PatientName} to another department/hospital.");
+    }
+
+     public void ProcessInsuranceClaim()
+    {
+        Console.WriteLine($"[Insurance] Processing claim for {PatientName}");
+        Console.WriteLine($"Insurance ID: {PatientId}     |        Claim Amount: BDT {BillAmount}");
     }
 
    
@@ -34,12 +72,20 @@ public class SurgeryPatient : Patient, IInsurable, ITransferable
     {
         Console.WriteLine("-----------------Surgery Patient-----------------");
         Console.WriteLine();
-        Console.WriteLine($"[Diagnose] Patient #{PatientId} {patientName}: Pre-surgical assessment for {Surgery}");
+        Console.WriteLine($"[Diagnose] Patient #{PatientId} {PatientName}: Pre-surgical assessment for {Surgery}");
     }
 
     public override void Treat()
     {
         Console.WriteLine($"[Treat] Preparing OT -> Anesthesia -> {Surgeon} performing {Surgery}");
-        BillAmount = 25000;
+        SetBillAmount(25000);
+    }
+    public double CalculateBill()
+    {
+        return BillAmount;
+    }
+     public void ApplyDiscount(double percentage)
+    {
+        BillAmount -= BillAmount * (percentage/ 100 );
     }
 }

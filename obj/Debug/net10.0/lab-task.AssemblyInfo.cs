@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lab-task")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff1d6075a8c4b9b2e30e55f1b526398d77163092")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+635acfa0059d8437803d545bfd44804a6ffafded")]
 [assembly: System.Reflection.AssemblyProductAttribute("lab-task")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lab-task")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

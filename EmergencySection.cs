@@ -1,15 +1,32 @@
 class EmergencyPatient : Patient , ITransferable
 {
-     string EmergencyType;
+     private string _emergencyType;
+     public string EmergencyType
+    {
+        get {return _emergencyType;}
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Emergercy cannot be empty or null");
+                _emergencyType = value;
+            }
+        }
+    }
 
      public void TransferTo(string department)
     {
-        Console.WriteLine($"[Transfer] URGENT: Moving {patientName} from ER to {department}");
+        Console.WriteLine($"[Transfer] URGENT: Moving {PatientName} from ER to {department}");
     }
 
     public EmergencyPatient(string name , int id, string type) : base(name, id)
     {
-        EmergencyType= type;
+        _emergencyType= type;
+    }
+    public void ProcessInsuranceClaim()
+    {
+        Console.WriteLine($"[Insurance] Processing claim for {PatientName}");
+        Console.WriteLine($"Insurance ID: {PatientId}     |        Claim Amount: BDT {BillAmount}");
     }
 
     public override void Diagnose()
@@ -17,13 +34,14 @@ class EmergencyPatient : Patient , ITransferable
         //base.Diagnose();
         Console.WriteLine("-----------------Emergency Patient---------------");
         Console.WriteLine();
-        Console.WriteLine($"[Diagnose] Patient #{PatientId} {patientName}: URGENT TRIAGE | Emergency : {EmergencyType}");
+        Console.WriteLine($"[Diagnose] Patient #{PatientId} {PatientName}: URGENT TRIAGE | Emergency : {EmergencyType}");
     }  
 
     public override void Treat()
     {
        // base.Treat();
         Console.WriteLine($"[Treat] Rushing to ER -> IV drip -> Calling cardiologist");
-        BillAmount = 5000;
+       // BillAmount = 5000;
+       SetBillAmount(5000);
     }
 }

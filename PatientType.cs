@@ -1,18 +1,43 @@
 public class PediatricPatient : Patient, IInsurable
 {
-    string GuardianName;
-    string InsuranceId;
+    private string _guardianName;
+        public string GuardianName
+    {
+        get {return _guardianName;}
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Gurdiam name cannot null or whitespace");
+                _guardianName = value;
+            }
+        }
+    }
+    private string _insuranceId;
+        public string  InsuranceId
+    {
+        get {return _insuranceId;}
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException(" Insurance name cannot null or whitespace");
+                _insuranceId = value;
+            }
+        }
+    }
 
     public PediatricPatient(string name, int id, string guardian, string insuranceId) : base(name, id)
     {
-        GuardianName = guardian;
-        InsuranceId = insuranceId;
+        _guardianName = guardian;
+        _insuranceId = insuranceId;
     }
 
     
     public void ProcessInsuranceClaim()
     {
-        Console.WriteLine($"Processing insurance claim for {GuardianName}");
+        Console.WriteLine($"[Insurance] Processing insurance claim for {PatientName}");
+        Console.WriteLine($"   Insurace ID : {InsuranceId} |  Claim Amount : BDT {BillAmount}");
     }
 
     
@@ -24,12 +49,12 @@ public class PediatricPatient : Patient, IInsurable
    
     public override void Diagnose()
     {
-        Console.WriteLine($"[Pediatric Check] Guardian: {GuardianName}");
+        Console.WriteLine($"[Pediatric] Guardian: {GuardianName}");
     }
 
     public override void Treat()
     {
         Console.WriteLine("[Treatment] Pediatric care applied");
-        BillAmount = 1000;
+        SetBillAmount(1200);
     }
 }

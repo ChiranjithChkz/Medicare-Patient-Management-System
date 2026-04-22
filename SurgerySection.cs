@@ -6,10 +6,14 @@ public class SurgeryPatient : Patient, IInsurable, ITransferable, IBillable
         get {return _surgery;}
         private set
         {
+            if(value == null)
+            {
+                throw new ArgumentNullException(nameof(Surgery));
+
+            }
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException("Srugery cannot null or empty");
-                _surgery = value;
+                throw new ArgumentException("SurgeryType cannot be empty.", nameof(Surgery));
             }
         }
     }
@@ -19,40 +23,52 @@ public class SurgeryPatient : Patient, IInsurable, ITransferable, IBillable
         get {return _surgeon;}
         private set
         {
-            if (string.IsNullOrWhiteSpace(value))
+             if(value == null)
             {
-                throw new ArgumentException("Surgeon name cannot null or whitespace");
-                _surgeon = value;
-            }
-        }
-    }
-    private string _insurance;
-        public string Insurance
-    {
-        get {return _insurance;}
-        private set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException("Insurance name cannot null or whitespace");
-                _insurance = value;
-            }
-        }
-    }
+                throw new ArgumentNullException(nameof(Surgeon));
 
-    public SurgeryPatient(string PatientName, int id, string surgery, string surgeon, string insurance) 
-        : base(PatientName, id)
+            }
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Surgeon cannot be empty.", nameof(Surgeon));
+            }
+        }
+    }
+    // private string _insurance;
+    //     public string Insurance
+    // {
+    //     get {return _insurance;}
+    //     private set
+    //     {
+    //         if (string.IsNullOrWhiteSpace(value))
+    //         {
+    //             throw new ArgumentException("Insurance name cannot null or whitespace");
+    //             _insurance = value;
+    //         }
+    //     }
+    // }
+
+    public string InsuranceId {get;}
+
+    public SurgeryPatient(string PatientName, int id,string bloodGroup, string insuranceId,string surgery, string surgeon ) 
+        : base(PatientName, id, bloodGroup)
     {
         _surgeon = surgeon;
         _surgery = surgery;
-        _insurance = insurance;
+      
+
+         if (string.IsNullOrWhiteSpace(insuranceId))
+            throw new ArgumentException("InsuranceId cannot be empty.");
+
+        InsuranceId = insuranceId;
     }
 
  
 
     public string GetInsuranceDetails()
     {
-        return $"Patient: {PatientName}, Surgery: {Surgery}, Insurance: {Insurance}";
+        return $"Patient: {PatientName}  | Surgery: {Surgery} | ID: {InsuranceId} | Status: Active";
+        
     }
 
  
@@ -63,8 +79,13 @@ public class SurgeryPatient : Patient, IInsurable, ITransferable, IBillable
 
      public void ProcessInsuranceClaim()
     {
+
+        if(BillAmount <= 0)
+        {
+            throw new InvalidOperationException($"Cannot process insurance for {PatientName}: Treatment has not been completed yet.");
+        }
         Console.WriteLine($"[Insurance] Processing claim for {PatientName}");
-        Console.WriteLine($"Insurance ID: {PatientId}     |        Claim Amount: BDT {BillAmount}");
+        Console.WriteLine($"Insurance ID: {PatientId}|Claim Amount: BDT {BillAmount}");
     }
 
    
@@ -77,7 +98,7 @@ public class SurgeryPatient : Patient, IInsurable, ITransferable, IBillable
 
     public override void Treat()
     {
-        Console.WriteLine($"[Treat] Preparing OT -> Anesthesia -> {Surgeon} performing {Surgery}");
+        Console.WriteLine($"[Treat] Preparing OT -> Anesthesia -> {Surgeon} performing {Surgery} on {PatientName}");
         SetBillAmount(25000);
     }
     public double CalculateBill()

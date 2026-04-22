@@ -1,52 +1,51 @@
 public class PediatricPatient : Patient, IInsurable
 {
     private string _guardianName;
-        public string GuardianName
+
+    public string GuardianName
     {
-        get {return _guardianName;}
+        get { return _guardianName; }
         private set
         {
+             if(value == null)
+            {
+                throw new ArgumentNullException(nameof(GuardianName));
+
+            }
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException("Gurdiam name cannot null or whitespace");
-                _guardianName = value;
+                throw new ArgumentException("GurdianName cannot be empty.", nameof(GuardianName));
             }
-        }
-    }
-    private string _insuranceId;
-        public string  InsuranceId
-    {
-        get {return _insuranceId;}
-        private set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentException(" Insurance name cannot null or whitespace");
-                _insuranceId = value;
-            }
+            _guardianName = value;
         }
     }
 
-    public PediatricPatient(string name, int id, string guardian, string insuranceId) : base(name, id)
+    public string InsuranceId { get; }
+
+    public PediatricPatient(string name, int id, string bloodGroup, string guardian, string insuranceId)
+        : base(name, id, bloodGroup)
     {
-        _guardianName = guardian;
-        _insuranceId = insuranceId;
+        
+        GuardianName = guardian;
+
+        if (string.IsNullOrWhiteSpace(insuranceId))
+            throw new ArgumentException("InsuranceId cannot be empty.");
+
+        InsuranceId = insuranceId;
     }
 
-    
     public void ProcessInsuranceClaim()
     {
         Console.WriteLine($"[Insurance] Processing insurance claim for {PatientName}");
-        Console.WriteLine($"   Insurace ID : {InsuranceId} |  Claim Amount : BDT {BillAmount}");
+        Console.WriteLine($"   Insurance ID: {InsuranceId} | Claim Amount: BDT {BillAmount}");
     }
 
-    
+ 
     string IInsurable.GetInsuranceDetails()
     {
         return $"Guardian: {GuardianName}, Insurance ID: {InsuranceId}";
     }
 
-   
     public override void Diagnose()
     {
         Console.WriteLine($"[Pediatric] Guardian: {GuardianName}");

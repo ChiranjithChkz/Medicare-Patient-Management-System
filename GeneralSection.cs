@@ -2,30 +2,21 @@ public class GeneralPatient : Patient, IInsurable
 {
 
     private string _insurable;
-    
-    public string Insurables
-    {
-        get {return _insurable;}
-        private set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-         
-                throw new ArgumentException("Insurance Id cannot be empty");
-                
-            _insurable = value;
-           
-        }
-    }
     private string _symptoms;
     public string Symptoms
     {
         get {return _symptoms; }
         private set
         {
+             if(value == null)
+            {
+                throw new ArgumentNullException(nameof(Symptoms));
+            }
             if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Symptoms cannot be empty.", nameof(Symptoms));
+            }
             
-                throw new ArgumentException("Symptoms cannot be empty.");
-            _symptoms = value;
             
         }
     }
@@ -33,22 +24,24 @@ public class GeneralPatient : Patient, IInsurable
     public void ProcessInsuranceClaim()
     {
         Console.WriteLine($"[Insurance] Processing claim for {PatientName}");
-        Console.WriteLine($"Insurance ID: {PatientId}     |        Claim Amount: BDT {BillAmount}");
+        Console.WriteLine($"Insurance ID: {InsuranceId}     |        Claim Amount: BDT {BillAmount}");
     }
 
     string IInsurable.GetInsuranceDetails()
     {
-        return $"Provider: National Health | ID : {Insurables} | Status: Active";
+        return $"Provider: National Health | ID : {InsuranceId} | Status: Active";
     }
 
 
-
-    public GeneralPatient(string name, int id, string sym, string insurable) : base(name, id)
+     public string InsuranceId {get; }
+    public GeneralPatient(string name, int id,string bloodGroup,string  insuranceId, string sym ) : base(name, id, bloodGroup)
     {
         Symptoms = sym;
-        Insurables = insurable;
-    }
+       if (string.IsNullOrWhiteSpace(insuranceId))
+            throw new ArgumentException("InsuranceId cannot be empty.");
 
+        InsuranceId = insuranceId;
+    }
     public override void Diagnose()
     {
 

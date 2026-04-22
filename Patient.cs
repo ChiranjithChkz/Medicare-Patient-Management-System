@@ -1,6 +1,7 @@
 using System.Globalization;
+using System.Reflection.Metadata;
 
- public abstract class Patient
+public abstract class Patient
 {
     //protected string patientName;
     //change;
@@ -9,7 +10,10 @@ using System.Globalization;
     //protected int PatientId;
     private int _patientId;
    // protected double BillAmount;
+ 
    public double BillAmount { get; protected set; }
+
+
     private string _symptoms;
     public string Symptoms
     {
@@ -20,8 +24,8 @@ using System.Globalization;
         if(string.IsNullOrWhiteSpace(value))
         {
             throw new ArgumentException("Systoms cannot be Null or Empty");
-            _symptoms = value;
         }
+            _symptoms = value;
         }
         
     }
@@ -49,25 +53,47 @@ using System.Globalization;
     protected void SetBillAmount(double amount)
     {
         if(amount < 0)
-        {
-            throw new ArgumentException("Bill amount cannot be negative.");
+        { 
+            throw new ArgumentOutOfRangeException(
+                nameof(amount),
+                amount,
+                "Bill amount cannot be negative."
+            );
 
         }
         BillAmount = amount;
+      
     }
-    
 
-    public Patient(string patientName, int patientId)
+    public string BloodGroup{ get; }
+ 
+    public Patient(string patientName, int patientId, string bloodGroup)
     {
+        //bloodGroup implemented---->
+         var validGroups = new HashSet<string>
+         {
+               "A+", "A-", "B+", "B-",
+               "AB+", "AB-", "O+", "O-"
+         };
+        if (!validGroups.Contains(bloodGroup))
+        {
+            throw new ArgumentException("Invalid blood group");
+        }
+        BloodGroup = bloodGroup;
+        
         PatientName = patientName;
-       
-
         if(patientId <= 0)
         {
-            throw new ArgumentException("Patient ID must be a positive number.");
+             throw new ArgumentOutOfRangeException(
+                nameof(patientId),
+                patientId,
+                "Patient ID must be a positive number."
+             );
+
         }
          _patientId = patientId; 
          AdmissionDate = DateTime.Now;
+
 
     }
     
@@ -77,6 +103,10 @@ using System.Globalization;
 
     public void SetDiscount(double percent)
     {
+        if( percent < 0 || percent > 100)
+        {
+            throw new ArgumentException("Discount must be between  0 to  100");
+        }
         DiscountPercent = percent;
     }
 
@@ -84,11 +114,10 @@ using System.Globalization;
     {
         Diagnose();
         Treat();
-        double discountAmount = BillAmount -  BillAmount * (DiscountPercent / 100);
-        Console.WriteLine($"[Bill] Patient: {PatientName} | Total BDT  {BillAmount} TK ");
-        Console.WriteLine($" Admitted: {AdmissionDate: yyyy-MM-dd HH:mm}");
-        Console.WriteLine($" [Discount]:  {DiscountPercent}%  | After discount: BDT {discountAmount}");
+        double discountAmount = BillAmount * (DiscountPercent / 100.0);
+        double finalAmount = BillAmount - discountAmount;
+        Console.WriteLine($"[Bill] Patient: {PatientName} | Blood Group: {BloodGroup} |   Total BDT  {BillAmount} TK ");
+        Console.WriteLine($" Admitted Time: {AdmissionDate: yyyy-MM-dd HH:mm}");
+        Console.WriteLine($"[Discount]:  {DiscountPercent}%  | After discount: BDT {finalAmount}");
     }
-
-
 }

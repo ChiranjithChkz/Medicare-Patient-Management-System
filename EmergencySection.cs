@@ -6,10 +6,14 @@ class EmergencyPatient : Patient , ITransferable
         get {return _emergencyType;}
         private set
         {
+            if(value == null)
+            {
+                throw new ArgumentNullException(nameof(EmergencyType));
+
+            }
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException("Emergercy cannot be empty or null");
-                _emergencyType = value;
+                throw new ArgumentException("Symptoms cannot be empty.", nameof(EmergencyType));
             }
         }
     }
@@ -19,7 +23,7 @@ class EmergencyPatient : Patient , ITransferable
         Console.WriteLine($"[Transfer] URGENT: Moving {PatientName} from ER to {department}");
     }
 
-    public EmergencyPatient(string name , int id, string type) : base(name, id)
+    public EmergencyPatient(string name , int id, string bloodGroup,string type) : base(name, id, bloodGroup)
     {
         _emergencyType= type;
     }

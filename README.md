@@ -64,28 +64,28 @@ git clone https://github.com/your-username/hospital-management-system.git
 
 Hospital-Management-System/
 │
-├── 📁 Models/
+├── Models/
 │   ├── Patient.cs
 │   └── PatientType.cs
 │
-├── 📁 Interfaces/
+├── Interfaces/
 │   ├── IBillable.cs
 │   └── ITransferable.cs
 │
-├── 📁 Services/
+├── Services/
 │   ├── HospitalReception.cs
 │   ├── ApplyDiscount.cs
 │   └── Insurance.cs
 │
-├── 📁 Sections/
+├── Sections/
 │   ├── EmergencySection.cs
 │   ├── GeneralSection.cs
 │   └── SurgerySection.cs
 │
-├── 📁 EntryPoint/
+├── EntryPoint/
 │   └── Program.cs
 │
-├── 📁 Tests/ (Optional)
+├── Tests/
 │   └── Test.cs
 │
 ├── README.md

@@ -62,21 +62,35 @@ git clone https://github.com/your-username/hospital-management-system.git
 
 📂 Project Structure
 
+
 Hospital-Management-System/
 │
 ├── 📁 Models/
-│   └── Patient.cs
+│   ├── Patient.cs
+│   └── PatientType.cs
+│
+├── 📁 Interfaces/
+│   ├── IBillable.cs
+│   └── ITransferable.cs
 │
 ├── 📁 Services/
-│   └── HospitalService.cs
+│   ├── HospitalReception.cs
+│   ├── ApplyDiscount.cs
+│   └── Insurance.cs
 │
-├── 📁 Utils/
-│   └── Helper.cs
+├── 📁 Sections/
+│   ├── EmergencySection.cs
+│   ├── GeneralSection.cs
+│   └── SurgerySection.cs
 │
-├── Program.cs
+├── 📁 EntryPoint/
+│   └── Program.cs
+│
+├── 📁 Tests/ (Optional)
+│   └── Test.cs
+│
 ├── README.md
 └── LICENSE
-
 ---
 
 🖼️ Screenshots

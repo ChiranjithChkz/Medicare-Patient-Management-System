@@ -62,7 +62,6 @@ git clone https://github.com/your-username/hospital-management-system.git
 
 📂 Project Structure
 
-
 Hospital-Management-System/
 │
 ├── 📁 Models/
@@ -93,11 +92,6 @@ Hospital-Management-System/
 └── LICENSE
 ---
 
-🖼️ Screenshots
-
-<p align="center">
-  <img src="https://via.placeholder.com/600x300.png?text=Project+Screenshot" width="80%">
-</p>---
 
 🔮 Future Improvements
 

@@ -1,66 +1,101 @@
-# Hospital Patinet Management System 
+# Hospital Patient Management System 
 This is a simple hospital patient management system. This is based on C-sharp language.C sharp language has Four fundamental pillar. Those are Encapsulation, Polymophism, Inheritance and lastly Abstruct.This project is focused on those four fundamental pillar. On the whole this project is a real world example of that language.
 This is the flow chart of this project. Also all steps are given in the image folder.
 ![image alt](https://github.com/ChiranjithChkz/Medicare-Patient-Management-System/blob/main/image/Lab4_Manual_4.jpg?raw=true)
 # Output in terminal: 
 ![image alt](https://github.com/ChiranjithChkz/Medicare-Patient-Management-System/blob/main/image/Screenshot%202026-04-08%20185130.png?raw=true)
 
-# 🏥 Hospital Management System (C# Console Application)
+<div align="center">
 
-## 📌 Overview
-This project is a **Hospital Management System** developed using **C# (.NET Console Application)**.  
-It demonstrates strong understanding of **Object-Oriented Programming (OOP)** principles along with robust **exception handling** and **custom exception design**.
+# 🏥 Hospital Patient Management System (C#)
 
-The system manages patient admissions, including general and surgery patients, while ensuring data validation and reliability.
+</div>
 
 ---
 
-## ✨ Key Features
-- 👤 Patient registration and management
-- 🏥 Surgery patient handling with surgeon assignment
-- 🔐 Strong input validation and error handling
-- ⚠️ Custom exception implementation for domain-specific errors
-- 📋 Safe and structured patient storage system
-- 🧠 Clean and modular object-oriented design
+> 🟦 **A structured and object-oriented Hospital Patient Management System built using C# (.NET Console Application), demonstrating strong OOP principles, custom exception handling, and clean software architecture.**
 
 ---
 
-## 🧠 Object-Oriented Programming Concepts Used
+## ✨ Project Overview
+This project is designed to manage hospital patient data efficiently, including general patients and surgery patients.  
+It focuses on building a **robust, scalable, and error-safe system** using core **Object-Oriented Programming (OOP)** principles in C#.
+
+---
+
+## 🧠 Core OOP Concepts Implemented
 
 ### 🔷 Encapsulation
-- Data is protected using private fields
-- Controlled access through properties with validation logic
+- Sensitive data is protected using private fields
+- Controlled access through validated properties
 
 ### 🔷 Inheritance
-- Base `Patient` class extended by specialized classes like `SurgeryPatient`
-- Promotes code reusability and scalability
+- Base class `Patient` extended into specialized classes like `SurgeryPatient`
+- Promotes code reuse and clean structure
 
 ### 🔷 Polymorphism
-- Method overriding used to customize behavior for different patient types
-- Enables dynamic method execution at runtime
+- Method overriding used for dynamic behavior
+- Different patient types behave differently at runtime
 
 ### 🔷 Abstraction
-- Complex implementation details hidden from the user
-- Only essential functionalities exposed through classes/interfaces
+- Internal complexity is hidden from the user
+- Only essential operations are exposed
 
 ---
 
-## ⚠️ Exception Handling
-- Proper use of `try-catch` blocks to handle runtime errors
-- Prevents system crashes due to invalid input or operations
+## ⚠️ Exception Handling System
+- Fully implemented `try-catch` blocks
+- Prevents runtime crashes and invalid operations
+- Ensures system stability
+
+---
 
 ## 🚨 Custom Exceptions
-- Created domain-specific exceptions for better error clarity
-- Improves debugging and system reliability
-- Example: invalid patient data, missing insurance ID, etc.
+- Domain-specific exceptions created for better control
+- Improves debugging and error clarity
+- Example cases:
+  - Invalid patient input
+  - Missing required medical details
+  - Incorrect insurance ID format
 
 ---
 
 ## 🛠️ Technologies Used
-- Language: **C#**
-- Framework: **.NET Console Application**
-- IDE: Visual Studio / VS Code
+- 💻 Language: C#
+- ⚙️ Framework: .NET Console Application
+- 🧑‍💻 IDE: Visual Studio / VS Code
 
 ---
 
 ## 📂 Project Structure
+
+lab-task/
+├── lab-task.sln                # Visual Studio Solution file
+├── lab-task.csproj             # Project configuration file
+├── Program.cs                  # Main entry point of the application
+├── Test.cs                     # Unit tests or manual test cases
+│
+├── Entities/
+│   ├── Patient.cs              # Core Patient model
+│   ├── PatientType.cs          # Enum or class defining patient categories
+│   └── SafePatientList.cs      # Collection wrapper for patient management
+│
+├── Sections/
+│   ├── GeneralSection.cs       # Logic for the General Ward
+│   ├── EmergencySection.cs     # Logic for the Emergency Department
+│   └── SurgerySection.cs       # Logic for the Surgery Department
+│
+├── Interfaces/
+│   ├── IBillable.cs            # Interface for items that can be invoiced
+│   ├── IInsurance.cs           # Interface for insurance processing
+│   └── ITransferable.cs        # Interface for patient transfers
+│
+├── Services/
+│   ├── HospitalReception.cs    # Management of patient intake
+│   └── ApplyDiscount.cs        # Logic for billing discounts
+│
+└── Exceptions/                 # Custom Exception classes
+    ├── BedUnavailableException.cs
+    ├── InsuranceClaimRejectedException.cs
+    ├── InvalidPatientDataException.cs
+    └── MediCareException.cs

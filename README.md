@@ -3,7 +3,7 @@ This is a simple hospital patient management system. This is based on C-sharp la
 This is the flow chart of this project. Also all steps are given in the image folder.
 ![image alt](https://github.com/ChiranjithChkz/Medicare-Patient-Management-System/blob/main/image/Lab4_Manual_4.jpg?raw=true)
 # Output in terminal: 
-![image alt](https://github.com/ChiranjithChkz/Medicare-Patient-Management-System/blob/main/image/Screenshot%202026-05-01%20001945.png?raw=true)
+![image alt](https://github.com/ChiranjithChkz/Medicare-Patient-Management-System/blob/main/image/Screenshot%202026-05-01%20001945.png?raw=true,https://github.com/ChiranjithChkz/Medicare-Patient-Management-System/blob/main/image/Screenshot%202026-05-01%20002004.png?raw=true)
 
 <div align="center">
 

@@ -1,21 +1,22 @@
+ 
 public class PediatricPatient : Patient, IInsurable
 {
-    private string _guardianName;
+    private string _guardianName="";
 
     public string GuardianName
     {
         get { return _guardianName; }
         private set
         {
-             if(value == null)
+            if (value == null)
             {
-                throw new ArgumentNullException(nameof(GuardianName));
-
+                throw new InvalidPatientDataException("GuardianName", "null");
             }
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException("GurdianName cannot be empty.", nameof(GuardianName));
+                throw new ArgumentException("GuardianName cannot be empty.", nameof(GuardianName));
             }
+            // FIXED: was missing this line
             _guardianName = value;
         }
     }
@@ -25,7 +26,6 @@ public class PediatricPatient : Patient, IInsurable
     public PediatricPatient(string name, int id, string bloodGroup, string guardian, string insuranceId)
         : base(name, id, bloodGroup)
     {
-        
         GuardianName = guardian;
 
         if (string.IsNullOrWhiteSpace(insuranceId))
@@ -40,7 +40,6 @@ public class PediatricPatient : Patient, IInsurable
         Console.WriteLine($"   Insurance ID: {InsuranceId} | Claim Amount: BDT {BillAmount}");
     }
 
- 
     string IInsurable.GetInsuranceDetails()
     {
         return $"Guardian: {GuardianName}, Insurance ID: {InsuranceId}";

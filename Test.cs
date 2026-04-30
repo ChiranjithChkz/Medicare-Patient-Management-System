@@ -6,3 +6,5 @@ class Test : IA, IB
     public void MethodA(){}
     public void MethodB(){}
 }
+
+ 
